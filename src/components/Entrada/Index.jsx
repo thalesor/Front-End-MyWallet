@@ -32,7 +32,6 @@ const Entrada = () =>
         setIsFormActive(false);
         console.log(formData);
         const validation = validateRegistry(formData);  
-        //se a validação front-end passar
         if(validation.hasErrors === false)
         {
             try
@@ -42,7 +41,7 @@ const Entrada = () =>
                 navigate('/home');
             }
             catch(err)
-            {   //erro ao inserir registro+
+            {   
                 setIsFormActive(true);
                 message(err.response.data, 'error', 'Falha!', hideMessage());
             }
@@ -70,7 +69,7 @@ const Entrada = () =>
         <Input type="text" autoComplete='false' disabled={isFormActive ? false : true} name='description' onChange={onInputChange} value={formData.description} placeholder="Descrição" required></Input>
         <FormButton type="submit" disabled={isFormActive ? false : true}>
         {isFormActive 
-        ? 'Entrar' 
+        ? 'Registrar' 
         :
         <Loader type="Oval" color="#FFFFFF" height={35} width={35} />
         }

@@ -31,7 +31,6 @@ const Saida = () =>
         e.preventDefault();
         setIsFormActive(false);
         const validation = validateRegistry(formData);  
-        //se a validação front-end passar
         if(validation.hasErrors === false)
         {
             try
@@ -41,7 +40,7 @@ const Saida = () =>
                 navigate('/home');
             }
             catch(err)
-            {   //erro ao inserir registro+
+            {  
                 setIsFormActive(true);
                 message(err.response.data, 'error', 'Falha!', hideMessage());
             }
@@ -69,7 +68,7 @@ const Saida = () =>
         <Input type="text" autoComplete='false' disabled={isFormActive ? false : true} name='description' onChange={onInputChange} value={formData.description} placeholder="Descrição" required></Input>
         <FormButton type="submit" disabled={isFormActive ? false : true}>
         {isFormActive 
-        ? 'Entrar' 
+        ? 'Registrar' 
         :
         <Loader type="Oval" color="#FFFFFF" height={35} width={35} />
         }
